@@ -45,7 +45,7 @@ class StudentController extends Controller
         ]);
         $student = Student::create($storeData);
 
-        return redirect('/students')->with('completed', 'Student has been saved!');
+        return redirect('/students');
     }
 
     /**
@@ -87,7 +87,7 @@ class StudentController extends Controller
             'password' => 'required|max:255',
         ]);
         Student::whereId($id)->update($updateData);
-        return redirect('/students')->with('completed', 'Student has been updated');
+        return redirect('/students');
     }
 
     /**
@@ -101,7 +101,7 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
         $student->delete();
 
-        return redirect('/students')->with('completed', 'Student has been deleted');
+        return redirect('/students');
 
     }
 }
